@@ -1,6 +1,6 @@
 # Personal Portfolio
 
-A modern, responsive developer portfolio built to showcase my skills, projects, and journey in **Web Development & AI/ML**.
+A modern developer portfolio built to showcase my skills, projects, and journey in **Web Development & AI/ML**.
 
 Designed with a focus on clean UI, smooth animations, and an interactive user experience.
 
