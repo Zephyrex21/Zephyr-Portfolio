@@ -113,7 +113,7 @@ export default function Hero({ theme }: HeroProps) {
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.1 }} className="mb-6">
             <h1 className="font-display text-5xl sm:text-7xl md:text-[90px] leading-[0.85] font-black tracking-tighter uppercase t-txt mb-4">
               Hi, I'm <br />
-              <span className="text-primary">Saurabh Raj</span> <br />
+              <span className="text-primary">Saurabh</span> <br />
               <span>Shekhar.</span>
             </h1>
           </motion.div>
@@ -151,7 +151,7 @@ export default function Hero({ theme }: HeroProps) {
             </div>
             <div className="space-y-8">
               <div>
-                <div className="text-5xl font-black tracking-tighter t-txt mb-1">7+ <span className="text-lg font-bold opacity-30">PROJECTS</span></div>
+                <div className="text-5xl font-black tracking-tighter t-txt mb-1">8+ <span className="text-lg font-bold opacity-30">PROJECTS</span></div>
                 <div className="text-[10px] uppercase tracking-widest t-txt40 font-bold">Full-Stack &amp; Deployed</div>
               </div>
               <div>

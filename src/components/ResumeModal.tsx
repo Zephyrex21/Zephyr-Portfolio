@@ -13,37 +13,40 @@ New Delhi, India | LeetCode: leetcode.com/u/Zephyrex_21
 SUMMARY
 2nd year B.Tech CSE (Data Science) student at NSUT Delhi (2028). Full-stack developer
 building end-to-end web apps, algorithm visualizers, and AI/ML tools with Python and React.
-157+ DSA problems solved across LeetCode (62) and Code360 (95).
+157+ DSA problems solved across LeetCode (62) and Code360 (95). 8+ deployed projects.
 
 EDUCATION
 B.Tech CSE (Data Science) — NSUT Delhi | 2024–2028
 Higher Secondary — Kendriya Vidyalaya Gole Market, Delhi | 2023
 
 PROJECTS
-1. Urban Heat Mitigation — Python, FastAPI, XGBoost, SHAP, React, Deck.gl, MapLibre
+1. Forge — GitHub Contribution Radar (Full-Stack MERN + GitHub OAuth)
+   React 18 · Vite · Node.js · Express · MongoDB · GitHub OAuth · JWT · TanStack Query · Recharts
+   Full-stack platform that scores GitHub issues (0–100) by skill match and tracks them
+   through a contribution pipeline (Saved → Exploring → In Progress → PR Opened → Merged).
+   Live: github-contribution-radar.vercel.app | GitHub: Zephyrex21/github-contribution-radar
+
+2. Urban Heat Mitigation — Python, FastAPI, XGBoost, SHAP, React, Deck.gl, MapLibre
    AI full-stack app covering 20 Indian cities with interactive heat maps and scenario builder.
    Live: urban-heat-mitigation-mu.vercel.app | GitHub: Zephyrex21/urban-heat-mitigation
 
-2. Cryptex (Full-Stack) — Node.js, Express.js, MongoDB, Supabase
+3. Cryptex (Full-Stack) — Node.js, Express.js, MongoDB, Supabase
    Token-based secure file sharing — REST API backend + vanilla JS frontend.
    Live: cryptex-file-sharing.onrender.com | GitHub: Zephyrex21/Cryptex_File_Sharing
 
-3. Automata Lab — React.js, Tailwind CSS, JavaScript
+4. Automata Lab — React.js, Tailwind CSS, JavaScript
    Interactive NFA→DFA converter with step-by-step subset construction.
    Live: automata-lab.netlify.app | GitHub: Zephyrex21/Automata-Visualizer
 
-4. Red Blackify — React.js, Tailwind CSS
+5. Red Blackify — React.js, Tailwind CSS
    Interactive RBT & AVL Tree visualizer with animations and pseudocode.
    Live: rbt-visualizer.netlify.app
 
-5. CFG Studio — React.js, Tailwind CSS
-   Context-Free Grammar tool with derivation visualization and parse trees.
-   Live: cfgstudio.netlify.app
-
 TECHNICAL SKILLS
-Frontend: React.js, JavaScript (ES6+), HTML5, CSS3, Tailwind CSS
+Frontend: React.js (18), Vite, JavaScript (ES6+), HTML5, CSS3, Tailwind CSS, TanStack Query, Recharts
 Backend: Node.js, Express.js, Python, FastAPI, C++
-Databases: MongoDB, Supabase Storage
+Auth: GitHub OAuth, JWT, Passport.js
+Databases: MongoDB (Mongoose), Supabase Storage
 CS Theory: Theory of Automata, DSA, OS, DBMS
 Tools: Git, GitHub, Netlify, Vercel, Postman
 
@@ -59,6 +62,7 @@ CERTIFICATIONS
   const handleCopy = () => { navigator.clipboard.writeText(plainText); setCopied(true); setTimeout(() => setCopied(false), 2000); };
 
   const projects = [
+    { name: "Forge — GitHub Contribution Radar", stack: "React 18 · Vite · Node.js · Express · MongoDB · GitHub OAuth · JWT · TanStack Query · Recharts", desc: "Full-stack MERN platform that scores GitHub issues (0–100) by skill match and tracks them through a contribution pipeline.", url: "github-contribution-radar.vercel.app" },
     { name: "Urban Heat Mitigation", stack: "Python · FastAPI · XGBoost · SHAP · React · Deck.gl", desc: "AI full-stack app — heat island analysis + scenario builder for 20 Indian cities.", url: "urban-heat-mitigation-mu.vercel.app" },
     { name: "Cryptex", stack: "Node.js · Express · MongoDB · Supabase", desc: "Secure token-based file sharing REST API + frontend. No accounts required.", url: "cryptex-file-sharing.onrender.com" },
     { name: "Automata Lab", stack: "React.js · Tailwind CSS · JavaScript", desc: "Interactive NFA→DFA visual converter with subset construction & DFA minimization.", url: "automata-lab.netlify.app" },
@@ -118,7 +122,7 @@ CERTIFICATIONS
           <div className="space-y-3">
             <h4 className="font-mono text-xs font-bold text-primary uppercase tracking-widest border-l-2 border-primary pl-2">// ABOUT</h4>
             <p className="text-sm t-txt60 leading-relaxed font-light">
-              2nd year B.Tech CSE (Data Science) at NSUT Delhi (Class of 2028). Full-stack developer building end-to-end apps — from Node/Express REST APIs and Python/FastAPI ML backends to interactive React frontends. 157+ DSA problems solved, 18+ GitHub repositories, 7+ deployed projects.
+              2nd year B.Tech CSE (Data Science) at NSUT Delhi (Class of 2028). Full-stack developer building end-to-end apps — from Node/Express REST APIs and Python/FastAPI ML backends to interactive React frontends. 157+ DSA problems solved, 19+ GitHub repositories, 8+ deployed projects.
             </p>
           </div>
 

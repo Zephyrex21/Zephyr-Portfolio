@@ -48,7 +48,7 @@ export default function App() {
         <About />
         <Skills />
         <TechMarquee />
-        <Projects />
+        <Projects theme={theme} />
         <Services />
         <Contact />
       </main>
