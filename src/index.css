@@ -6,86 +6,131 @@
   --color-secondary: #F5F5F5;
   --color-on-secondary: #0A0A0A;
   --color-surface: #0A0A0A;
-  --color-surface-dim: #020202;
-  --color-surface-bright: #121212;
-  --color-surface-container-lowest: #000000;
-  --color-surface-container-low: #0B0B0B;
-  --color-surface-container: #121212;
-  --color-surface-container-high: #1C1C1C;
-  --color-surface-container-highest: #262626;
   --color-on-surface: #F5F5F5;
-  --color-on-surface-variant: #A3A3A3;
   --color-outline: #2E2E2E;
-  --color-outline-variant: #404040;
-  --color-primary-container: #161616;
-  --color-on-primary-container: #00FF66;
-  --color-secondary-container: #262626;
-  --color-on-secondary-container: #F5F5F5;
-  --color-background: #0A0A0A;
-  --color-on-background: #F5F5F5;
-  --color-surface-variant: #1C1C1C;
-  
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
   --font-display: "Outfit", sans-serif;
-  
   --animate-marquee: marquee 35s linear infinite;
-  
   @keyframes marquee {
     0% { transform: translateX(0); }
     100% { transform: translateX(-50%); }
   }
 }
 
-/* Custom styles for high-fidelity interactive details */
-.glass-card {
-  background: rgba(16, 16, 16, 0.75);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+/* ─── THEME VARIABLES ────────────────────────────────────── */
+:root {
+  --t-bg:      #0A0A0A;
+  --t-bg2:     #080808;
+  --t-card:    #0d0d0d;
+  --t-card2:   #050505;
+  --t-input:   #000000;
+  --t-nav:     rgba(0,0,0,0.95);
+  --t-txt:     #ffffff;
+  --t-txt80:   rgba(255,255,255,0.80);
+  --t-txt60:   rgba(255,255,255,0.60);
+  --t-txt50:   rgba(255,255,255,0.50);
+  --t-txt40:   rgba(255,255,255,0.40);
+  --t-txt20:   rgba(255,255,255,0.20);
+  --t-bdr:     rgba(255,255,255,0.10);
+  --t-bdr2:    rgba(255,255,255,0.20);
+  --t-bdr5:    rgba(255,255,255,0.05);
+  --t-surface: rgba(255,255,255,0.05);
+  --t-inv:     #ffffff;
+  --t-invtxt:  #000000;
+  --t-canvas-line: rgba(255,255,255,0.022);
+  --t-scrolltrack: #0A0A0A;
+  --t-scrollthumb: #2E2E2E;
+  --color-primary: #00FF66;
+  --color-on-primary: #0A0A0A;
 }
 
-.dark .glass-card {
-  background: rgba(10, 10, 10, 0.85);
-  border: 1px solid rgba(255, 255, 255, 0.05);
+[data-theme="light"] {
+  --t-bg:      #F4F6F8;
+  --t-bg2:     #EBEBEB;
+  --t-card:    #FFFFFF;
+  --t-card2:   #F8F8F8;
+  --t-input:   #EEEEEE;
+  --t-nav:     rgba(248,249,250,0.95);
+  --t-txt:     #0A0A0A;
+  --t-txt80:   rgba(0,0,0,0.80);
+  --t-txt60:   rgba(0,0,0,0.60);
+  --t-txt50:   rgba(0,0,0,0.50);
+  --t-txt40:   rgba(0,0,0,0.40);
+  --t-txt20:   rgba(0,0,0,0.20);
+  --t-bdr:     rgba(0,0,0,0.10);
+  --t-bdr2:    rgba(0,0,0,0.20);
+  --t-bdr5:    rgba(0,0,0,0.05);
+  --t-surface: rgba(0,0,0,0.05);
+  --t-inv:     #0A0A0A;
+  --t-invtxt:  #ffffff;
+  --t-canvas-line: rgba(0,0,0,0.04);
+  --t-scrolltrack: #F0F0F0;
+  --t-scrollthumb: #BBBBBB;
+  --color-primary: #00994D;
+  --color-on-primary: #ffffff;
 }
 
-/* Smooth custom cursor glow */
+/* ─── THEME UTILITY CLASSES ─────────────────────────────── */
+@utility t-bg        { background-color: var(--t-bg); }
+@utility t-bg2       { background-color: var(--t-bg2); }
+@utility t-card      { background-color: var(--t-card); }
+@utility t-card2     { background-color: var(--t-card2); }
+@utility t-input-bg  { background-color: var(--t-input); }
+@utility t-nav-bg    { background-color: var(--t-nav); }
+@utility t-txt       { color: var(--t-txt); }
+@utility t-txt80     { color: var(--t-txt80); }
+@utility t-txt60     { color: var(--t-txt60); }
+@utility t-txt50     { color: var(--t-txt50); }
+@utility t-txt40     { color: var(--t-txt40); }
+@utility t-txt20     { color: var(--t-txt20); }
+@utility t-bdr       { border-color: var(--t-bdr); }
+@utility t-bdr2      { border-color: var(--t-bdr2); }
+@utility t-bdr5      { border-color: var(--t-bdr5); }
+@utility t-surface   { background-color: var(--t-surface); }
+@utility t-btn-inv {
+  &:hover {
+    background-color: var(--t-inv);
+    color: var(--t-invtxt);
+    border-color: var(--t-inv);
+  }
+}
+
+/* ─── SCROLLBAR ─────────────────────────────────────────── */
+::-webkit-scrollbar       { width: 8px; }
+::-webkit-scrollbar-track { background: var(--t-scrolltrack); }
+::-webkit-scrollbar-thumb { background: var(--t-scrollthumb); border-radius: 9999px; }
+::-webkit-scrollbar-thumb:hover { background: var(--color-primary); }
+
+/* ─── CURSOR GLOW ───────────────────────────────────────── */
 .cursor-glow {
   width: 450px;
   height: 450px;
-  background: radial-gradient(circle, rgba(0, 255, 102, 0.04) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(0, 200, 80, 0.04) 0%, transparent 70%);
   position: fixed;
   pointer-events: none;
   z-index: 10;
   transform: translate(-50%, -50%);
-  transition: transform 0.1s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transition: left 0.05s, top 0.05s;
 }
 
-/* Custom Scrollbar */
-::-webkit-scrollbar {
-  width: 10px;
-}
-::-webkit-scrollbar-track {
-  background: #0A0A0A;
-}
-::-webkit-scrollbar-thumb {
-  background: #2E2E2E;
-  border-radius: 9999px;
-  border: 2px solid #0A0A0A;
-}
-::-webkit-scrollbar-thumb:hover {
-  background: #00FF66;
-}
-
-/* Typing Cursor Pulse */
-@keyframes blink {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0; }
-}
-
+/* ─── TYPING CURSOR ─────────────────────────────────────── */
+@keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
 .typing-cursor::after {
   content: '|';
   margin-left: 2px;
-  color: #00FF66;
+  color: var(--color-primary);
   animation: blink 1s step-end infinite;
+}
+
+/* ─── GLASS CARD ─────────────────────────────────────────── */
+.glass-card {
+  background: var(--t-card);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--t-bdr);
+}
+
+/* ─── PRINT STYLES ───────────────────────────────────────── */
+@media print {
+  .print\:hidden { display: none !important; }
+  body { background: white !important; color: black !important; }
 }

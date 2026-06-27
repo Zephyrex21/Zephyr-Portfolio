@@ -1,38 +1,20 @@
-# Personal Portfolio
+<div align="center">
+<img width="1200" height="475" alt="GHBanner" src="https://ai.google.dev/static/site-assets/images/share-ais-513315318.png" />
+</div>
 
-A modern developer portfolio built to showcase my skills, projects, and journey in **Web Development & AI/ML**.
+# Run and deploy your AI Studio app
 
-Designed with a focus on clean UI, smooth animations, and an interactive user experience.
+This contains everything you need to run your app locally.
 
-## Portfolio Preview :- https://saurabhdev-xi.vercel.app/
+View your app in AI Studio: https://ai.studio/apps/4ed2231f-c9ff-49ea-ac45-4730b038ecae
 
-## Features
+## Run Locally
 
-- Modern React + TypeScript architecture
-- Responsive and minimal UI design
-- Smooth animations and transitions
-- Component-based structure
-- Project showcase with tech stack details
-- Fully responsive across devices
-- AI-powered integration
-
-## Tech Stack
-
-**Frontend**
-- React
-- TypeScript
-- Vite
-- Tailwind CSS
-
-**Libraries**
-- Motion
-- Lucide Icons
-
-**Other**
-- Express.js
+**Prerequisites:**  Node.js
 
 
-## Author
-
-Saurabh Raj Shekhar
-
+1. Install dependencies:
+   `npm install`
+2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
+3. Run the app:
+   `npm run dev`

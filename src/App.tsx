@@ -1,8 +1,3 @@
-/**
- * @license
- * SPDX-License-Identifier: Apache-2.0
- */
-
 import { useState, useEffect } from "react";
 import { AnimatePresence } from "motion/react";
 import TopNavBar from "./components/TopNavBar";
@@ -19,59 +14,49 @@ import ResumeModal from "./components/ResumeModal";
 export default function App() {
   const [isResumeOpen, setIsResumeOpen] = useState(false);
   const [mousePos, setMousePos] = useState({ x: -100, y: -100 });
+  const [theme, setTheme] = useState<"dark" | "light">(() => {
+    return (localStorage.getItem("portfolio-theme") as "dark" | "light") || "dark";
+  });
 
-  // Custom cursor mouse coordinate tracker
+  const toggleTheme = () => {
+    setTheme((prev) => {
+      const next = prev === "dark" ? "light" : "dark";
+      localStorage.setItem("portfolio-theme", next);
+      return next;
+    });
+  };
+
+  // Sync data-theme attribute on root element so CSS vars cascade correctly
   useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
-      setMousePos({ x: e.clientX, y: e.clientY });
-    };
+    document.documentElement.setAttribute("data-theme", theme);
+  }, [theme]);
+
+  useEffect(() => {
+    const handleMouseMove = (e: MouseEvent) => setMousePos({ x: e.clientX, y: e.clientY });
     window.addEventListener("mousemove", handleMouseMove);
     return () => window.removeEventListener("mousemove", handleMouseMove);
   }, []);
 
   return (
-    <div className="relative min-h-screen bg-surface text-on-surface antialiased overflow-x-hidden selection:bg-primary-container/35 selection:text-primary">
-      {/* Immersive Custom Cursor Glow Spot */}
-      <div
-        className="cursor-glow hidden md:block"
-        style={{ left: `${mousePos.x}px`, top: `${mousePos.y}px` }}
-      />
+    <div data-theme={theme} className="relative min-h-screen t-bg t-txt antialiased overflow-x-hidden selection:bg-primary/20 selection:text-primary">
+      <div className="cursor-glow hidden md:block" style={{ left: `${mousePos.x}px`, top: `${mousePos.y}px` }} />
 
-      {/* Navigation Header */}
-      <TopNavBar onOpenResume={() => setIsResumeOpen(true)} />
+      <TopNavBar onOpenResume={() => setIsResumeOpen(true)} theme={theme} toggleTheme={toggleTheme} />
 
-      {/* Section Blocks */}
       <main>
-        {/* Hero Landing */}
-        <Hero />
-
-        {/* Detailed About section */}
+        <Hero theme={theme} />
         <About />
-
-        {/* Technical skills grid */}
         <Skills />
-
-        {/* Tech horizontal marquee */}
         <TechMarquee />
-
-        {/* Portfolio selected projects */}
         <Projects />
-
-        {/* Interactive service list */}
         <Services />
-
-        {/* Secure local Inquiry inbox */}
         <Contact />
       </main>
 
-      {/* Footer information */}
       <Footer />
 
-      {/* Fully printable Resume Lightbox Modal */}
       <AnimatePresence>
-        {isResumeOpen && (
-          <ResumeModal onClose={() => setIsResumeOpen(false)} />
-        )}
+        {isResumeOpen && <ResumeModal onClose={() => setIsResumeOpen(false)} />}
       </AnimatePresence>
     </div>
   );
