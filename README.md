@@ -1,20 +1,32 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://ai.google.dev/static/site-assets/images/share-ais-513315318.png" />
-</div>
+# Saurabh | Developer Portfolio
 
-# Run and deploy your AI Studio app
+A modern interactive personal portfolio website showcasing my projects, skills, and journey in Web Development & AI/ML.
 
-This contains everything you need to run your app locally.
+Built with a focus on clean design, smooth animations, and a premium user experience.
 
-View your app in AI Studio: https://ai.studio/apps/4ed2231f-c9ff-49ea-ac45-4730b038ecae
+---
 
-## Run Locally
+## Tech Stack
 
-**Prerequisites:**  Node.js
+- React
+- TypeScript
+- Vite
+- Tailwind CSS
+- Motion
+- Lucide Icons
+- Google Gemini API
+
+---
+
+## 🌐 Live Demo
+
+https://saurabhdev-xi.vercel.app/
+
+---
 
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+## 👨Author
+
+**Saurabh**
+
+GitHub: https://github.com/Zephyrex21  
