@@ -6,6 +6,12 @@ Built with a focus on clean design, smooth animations, and a premium user experi
 
 ---
 
+## Live Demo
+
+https://saurabhdev-xi.vercel.app/
+
+---
+
 ## Tech Stack
 
 - React
@@ -18,14 +24,7 @@ Built with a focus on clean design, smooth animations, and a premium user experi
 
 ---
 
-## 🌐 Live Demo
-
-https://saurabhdev-xi.vercel.app/
-
----
-
-
-## 👨Author
+## Author
 
 **Saurabh**
 
