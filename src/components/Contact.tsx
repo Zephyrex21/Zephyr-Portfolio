@@ -39,13 +39,24 @@ export default function Contact() {
     }; 
     
     emailjs
-    .send("service_sa37bt5", "emplate_we2urjg", templateParams, "K13XXYHK7C9sMXvKm")
+    .send("service_an3ldvn", "template_kwe2caa", templateParams, "Mls9kHrGGXiYFysYQ")
     .then(() => {
+      // Save to local history so the inbox below updates
+      const newSub: ContactSubmission = {
+        id: "msg-" + Date.now(), name, email, service, message,
+        timestamp: new Date().toLocaleDateString("en-US", {
+          month: "short", day: "numeric", year: "numeric",
+          hour: "2-digit", minute: "2-digit",
+        }),
+      };
+      const updated = [newSub, ...submissions];
+      setSubmissions(updated);
+      localStorage.setItem("portfolio_submissions", JSON.stringify(updated));
       setName(""); setEmail(""); setService("Collaboration"); setMessage("");
       setIsSuccess(true);
       setTimeout(() => setIsSuccess(false), 5000);
     })
-    .catch(() => alert("Failed to send. Please email me directly."));
+    .catch(() => alert("Failed to send. Please email me directly at shekharsaurabhraj@gmail.com"));
     
   };
 

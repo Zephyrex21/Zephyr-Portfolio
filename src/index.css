@@ -95,6 +95,9 @@
   }
 }
 
+/* ─── SCROLL MARGIN (prevents navbar overlap on anchor jump) */
+section[id] { scroll-margin-top: 80px; }
+
 /* ─── SCROLLBAR ─────────────────────────────────────────── */
 ::-webkit-scrollbar       { width: 8px; }
 ::-webkit-scrollbar-track { background: var(--t-scrolltrack); }
