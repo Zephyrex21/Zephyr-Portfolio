@@ -100,8 +100,8 @@ export default function Projects({ theme }: ProjectsProps) {
   const projects: Project[] = [
     // ── 1. Forge (GitHub Contribution Radar) ──
     {
-      id: "forge",
-      name: "Forge",
+      id: "upstream",
+      name: "UpStream",
       category: "Full-Stack App",
       tagline: "GitHub Contribution Intelligence Platform.",
       description:
