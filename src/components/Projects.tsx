@@ -339,7 +339,7 @@ function nfaToDfa(nfa) {
                     onClick={() => setSelectedCaseStudy(project)}
                     className="t-card2 border t-bdr rounded-2xl overflow-hidden shadow-2xl relative group transition-all duration-300 ease-out cursor-pointer hover:border-primary"
                   >
-                    <div className="aspect-[16/10] w-full relative">
+                    <div className="aspect-[16/10] w-full relative overflow-hidden ">
                       <ProjectImage project={project} theme={theme} />
                       <div className="absolute inset-0 bg-black/55 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                         <div className="bg-white text-black px-6 py-2.5 rounded-full text-xs uppercase tracking-widest font-black shadow-2xl flex items-center gap-1.5 translate-y-2 group-hover:translate-y-0 transition-all duration-300">
@@ -455,7 +455,7 @@ function nfaToDfa(nfa) {
               <div className="p-6 md:p-8 overflow-y-auto space-y-8 flex-1 font-sans">
                 {/* Image + overview */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center pb-6 border-b t-bdr5">
-                  <div className="rounded-xl overflow-hidden border t-bdr shadow-2xl aspect-video">
+                  <div className="rounded-xl overflow-hidden border t-bdr shadow-2xl aspect-video relative ">
                     <ProjectImage project={selectedCaseStudy} theme={theme} />
                   </div>
                   <div className="space-y-4">
@@ -525,17 +525,6 @@ function nfaToDfa(nfa) {
                       {selectedCaseStudy.solutions}
                     </p>
                   </div>
-                </div>
-
-                {/* Code snippet */}
-                <div className="space-y-3 pt-6 border-t t-bdr5">
-                  <div className="flex items-center gap-2 text-primary font-mono text-xs uppercase tracking-widest">
-                    <Terminal className="w-4 h-4" />
-                    <span>Core Logic</span>
-                  </div>
-                  <pre className="bg-[#0a0a0a] border border-white/10 p-5 rounded-xl text-xs overflow-x-auto font-mono text-primary leading-relaxed whitespace-pre">
-                    {codeSnippets[selectedCaseStudy.id]}
-                  </pre>
                 </div>
               </div>
 
