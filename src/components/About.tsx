@@ -33,7 +33,7 @@ export default function About() {
                 <img
                   className="w-full h-full object-cover rounded-xl grayscale hover:grayscale-0 hover:scale-[1.02] transition-all duration-500 ease-out cursor-pointer"
                   src="/public/photo.jpg"
-                  alt="Saurabh Raj Shekhar"
+                  alt="https://i.ibb.co/Nd51W1WN/photo.png"
                   referrerPolicy="no-referrer"
                 />
               </div>
