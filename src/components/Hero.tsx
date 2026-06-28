@@ -113,7 +113,7 @@ export default function Hero({ theme }: HeroProps) {
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.1 }} className="mb-6">
             <h1 className="font-display text-5xl sm:text-7xl md:text-[90px] leading-[0.85] font-black tracking-tighter uppercase t-txt mb-4">
               Hi, I'm <br />
-              <span className="text-primary">Saurabh</span> <br />
+              <span className="text-primary">Saurabh Raj</span> <br />
               <span>Shekhar.</span>
             </h1>
           </motion.div>
