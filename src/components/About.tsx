@@ -72,9 +72,9 @@ export default function About() {
               </div>
 
               <div className="grid grid-cols-3 gap-6 pt-8 border-t t-bdr">
-                <div className="text-center md:text-left"><Counter target={8} suffix="+" /><div className="t-txt40 text-[10px] font-mono uppercase tracking-widest mt-1.5">Projects Shipped</div></div>
+                <div className="text-center md:text-left"><Counter target={12} suffix="+" /><div className="t-txt40 text-[10px] font-mono uppercase tracking-widest mt-1.5">Projects Shipped</div></div>
                 <div className="text-center md:text-left"><Counter target={157} suffix="+" /><div className="t-txt40 text-[10px] font-mono uppercase tracking-widest mt-1.5">DSA Problems</div></div>
-                <div className="text-center md:text-left"><Counter target={18} /><div className="t-txt40 text-[10px] font-mono uppercase tracking-widest mt-1.5">GitHub Repos</div></div>
+                <div className="text-center md:text-left"><Counter target={22} suffix="+" /><div className="t-txt40 text-[10px] font-mono uppercase tracking-widest mt-1.5">GitHub Repos</div></div>
               </div>
             </motion.div>
           </div>

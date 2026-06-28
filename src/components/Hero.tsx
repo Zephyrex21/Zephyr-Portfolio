@@ -151,7 +151,7 @@ export default function Hero({ theme }: HeroProps) {
             </div>
             <div className="space-y-8">
               <div>
-                <div className="text-5xl font-black tracking-tighter t-txt mb-1">8+ <span className="text-lg font-bold opacity-30">PROJECTS</span></div>
+                <div className="text-5xl font-black tracking-tighter t-txt mb-1">12+ <span className="text-lg font-bold opacity-30">PROJECTS</span></div>
                 <div className="text-[10px] uppercase tracking-widest t-txt40 font-bold">Full-Stack &amp; Deployed</div>
               </div>
               <div>
@@ -159,7 +159,7 @@ export default function Hero({ theme }: HeroProps) {
                 <div className="text-[10px] uppercase tracking-widest t-txt40 font-bold">Problems Solved</div>
               </div>
               <div>
-                <div className="text-5xl font-black tracking-tighter t-txt mb-1">18 <span className="text-lg font-bold opacity-30 text-primary">REPOS</span></div>
+                <div className="text-5xl font-black tracking-tighter t-txt mb-1">22+ <span className="text-lg font-bold opacity-30 text-primary">REPOS</span></div>
                 <div className="text-[10px] uppercase tracking-widest t-txt40 font-bold">On GitHub</div>
               </div>
             </div>
