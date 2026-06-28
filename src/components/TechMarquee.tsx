@@ -1,43 +1,21 @@
-export default function TechMarquee() {
-  const techs = [
-    { name: "React 18",     icon: "⚛" },
-    { name: "Node.js",      icon: "🟢" },
-    { name: "Python",       icon: "🐍" },
-    { name: "TypeScript",   icon: "TS" },
-    { name: "Express",      icon: "⚡" },
-    { name: "FastAPI",      icon: "🚀" },
-    { name: "MongoDB",      icon: "🍃" },
-    { name: "Supabase",     icon: "⚡" },
-    { name: "Tailwind CSS", icon: "💨" },
-    { name: "GitHub OAuth", icon: "🔐" },
-    { name: "TanStack",     icon: "🔄" },
-    { name: "Deck.gl",      icon: "🗺" },
-    { name: "C++",          icon: "⚙" },
-    { name: "Git",          icon: "🔀" },
-    { name: "Vercel",       icon: "▲" },
-    { name: "Netlify",      icon: "◆" },
-  ];
+import { Sparkles } from "lucide-react";
 
+export default function TechMarquee() {
+  const techs = ["REACT", "NODE.JS", "PYTHON", "TAILWIND", "EXPRESS", "C++", "FASTAPI", "MONGODB", "SUPABASE", "DSA", "GIT", "VERCEL", "GITHUB OAUTH", "TANSTACK"];
+  const full = [...techs, ...techs];
   return (
-    <div className="py-14 t-bg2 border-y t-bdr5">
-      <div className="max-w-7xl mx-auto px-6 md:px-12">
-        <div className="flex items-center justify-between mb-6">
-          <span className="text-xs font-mono uppercase tracking-widest text-primary">// TECH_STACK</span>
-          <span className="text-[10px] font-mono t-txt40 uppercase tracking-wider">{techs.length} technologies</span>
-        </div>
-        <div className="flex flex-wrap gap-2">
-          {techs.map((tech) => (
-            <div
-              key={tech.name}
-              className="group flex items-center gap-2 px-3 py-1.5 rounded-lg border t-bdr t-surface hover:border-primary hover:bg-primary/5 transition-all duration-200 cursor-default"
-            >
-              <span className="text-[11px] leading-none select-none">{tech.icon}</span>
-              <span className="text-[11px] font-mono font-bold t-txt60 group-hover:text-primary transition-colors duration-200 uppercase tracking-wide whitespace-nowrap">
-                {tech.name}
-              </span>
-            </div>
-          ))}
-        </div>
+    <div className="py-14 t-bg2 overflow-hidden whitespace-nowrap relative border-y t-bdr5">
+      <div className="absolute left-0 top-0 bottom-0 w-24 z-10 pointer-events-none" style={{ background: "linear-gradient(to right, var(--t-bg2), transparent)" }} />
+      <div className="absolute right-0 top-0 bottom-0 w-24 z-10 pointer-events-none" style={{ background: "linear-gradient(to left, var(--t-bg2), transparent)" }} />
+      <div className="animate-marquee inline-flex items-center gap-16 md:gap-24">
+        {full.map((tech, i) => (
+          <div key={i} className="flex items-center gap-6 md:gap-8 select-none">
+            <span className="text-3xl md:text-5xl font-black t-txt20 font-display hover:text-primary transition-colors duration-300 tracking-tighter uppercase">
+              {tech}
+            </span>
+            <Sparkles className="w-5 h-5 text-primary/30" />
+          </div>
+        ))}
       </div>
     </div>
   );
