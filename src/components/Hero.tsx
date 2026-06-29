@@ -7,9 +7,9 @@ interface HeroProps { theme: "dark" | "light"; }
 // Defined outside component — not recreated on every render
 const ROLES = [
   "Full-Stack Developer",
-  "AI/ML Enthusiast",
-  "CS Undergrad @ NSUT",
-  "Algo Visualizer Builder",
+  "AI / ML Enthusiast",
+  "MERN Stack Dev",
+  "DSA & CP Problem Solver"
 ];
 
 export default function Hero({ theme }: HeroProps) {
@@ -19,19 +19,34 @@ export default function Hero({ theme }: HeroProps) {
   const [isDeleting, setIsDeleting] = useState(false);
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
 
-  const roles = ROLES;
-
   useEffect(() => {
-    const currentRole = roles[roleIndex];
-    let timer: ReturnType<typeof setTimeout>;
-    if (isDeleting) {
-      timer = setTimeout(() => { setTypedText(currentRole.substring(0, charIndex - 1)); setCharIndex((p) => p - 1); }, 50);
-    } else {
-      timer = setTimeout(() => { setTypedText(currentRole.substring(0, charIndex + 1)); setCharIndex((p) => p + 1); }, 100);
+    const currentRole = ROLES[roleIndex];
+
+    // Fully typed — pause then start deleting
+    if (!isDeleting && charIndex === currentRole.length) {
+      const t = setTimeout(() => setIsDeleting(true), 2000);
+      return () => clearTimeout(t);
     }
-    if (!isDeleting && charIndex === currentRole.length) { timer = setTimeout(() => setIsDeleting(true), 2000); }
-    else if (isDeleting && charIndex === 0) { setIsDeleting(false); setRoleIndex((p) => (p + 1) % roles.length); }
-    return () => clearTimeout(timer);
+
+    // Fully deleted — move to next role immediately
+    if (isDeleting && charIndex === 0) {
+      setRoleIndex((p) => (p + 1) % ROLES.length);
+      setIsDeleting(false);
+      return;
+    }
+
+    // Typing or deleting one character at a time
+    const t = setTimeout(() => {
+      if (isDeleting) {
+        setTypedText(currentRole.substring(0, charIndex - 1));
+        setCharIndex((p) => p - 1);
+      } else {
+        setTypedText(currentRole.substring(0, charIndex + 1));
+        setCharIndex((p) => p + 1);
+      }
+    }, isDeleting ? 50 : 100);
+
+    return () => clearTimeout(t);
   }, [charIndex, isDeleting, roleIndex]);
 
   // Canvas — adapts colors based on theme
@@ -119,19 +134,6 @@ export default function Hero({ theme }: HeroProps) {
       <div className="relative z-10 w-full max-w-7xl mx-auto px-6 md:px-12 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
         {/* Left */}
         <div className="lg:col-span-8 text-left">
-          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} className="mb-6">
-            <div className="flex flex-wrap items-center gap-2">
-              <span className="inline-flex items-center gap-2 px-3 py-1 t-surface border t-bdr text-primary font-mono text-xs font-semibold tracking-widest rounded-full uppercase">
-                <span className="w-1.5 h-1.5 bg-primary rounded-full animate-ping" />
-                CSE Student &amp; Full-Stack Developer
-              </span>
-              <span className="inline-flex items-center gap-2 px-3 py-1 bg-primary/10 border border-primary/30 text-primary font-mono text-xs font-semibold tracking-widest rounded-full uppercase">
-                <span className="w-1.5 h-1.5 bg-primary rounded-full animate-pulse" />
-                Open to Internships · 2026
-              </span>
-            </div>
-          </motion.div>
-
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.1 }} className="mb-6">
             <h1 className="font-display text-5xl sm:text-7xl md:text-[90px] leading-[0.85] font-black tracking-tighter uppercase t-txt mb-4">
               Hi, I'm <br />

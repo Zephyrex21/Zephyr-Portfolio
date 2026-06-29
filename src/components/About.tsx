@@ -1,5 +1,5 @@
 import { useEffect, useState, useRef } from "react";
-import { GraduationCap, CheckCircle2 } from "lucide-react";
+import { GraduationCap, CheckCircle2, User } from "lucide-react";
 import { motion, useInView } from "motion/react";
 
 function Counter({ target, duration = 1.5, suffix = "" }: { target: number; duration?: number; suffix?: string }) {
@@ -37,6 +37,24 @@ export default function About() {
                   referrerPolicy="no-referrer"
                 />
               </div>
+              {/* Name badge — top left */}
+              <motion.div
+                initial={{ opacity: 0, scale: 0.8, y: -20 }}
+                whileInView={{ opacity: 1, scale: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+                className="absolute -top-5 -left-4 md:-left-6 t-card border t-bdr p-4 md:p-5 rounded-xl shadow-2xl flex items-center gap-3 hover:border-primary transition-all duration-300"
+              >
+                <div className="w-10 h-10 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center text-primary">
+                  <User className="w-5 h-5" />
+                </div>
+                <div>
+                  <div className="text-primary font-display text-base md:text-lg font-black leading-none">SAURABH</div>
+                  <div className="t-txt40 font-mono text-[9px] uppercase tracking-widest mt-1">Raj Shekhar</div>
+                </div>
+              </motion.div>
+
+              {/* College badge — bottom right */}
               <motion.div initial={{ opacity: 0, scale: 0.8, y: 20 }} whileInView={{ opacity: 1, scale: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: 0.3 }}
                 className="absolute -bottom-6 -right-4 md:-right-6 t-card border t-bdr p-5 md:p-6 rounded-xl shadow-2xl flex items-center gap-4 hover:border-primary transition-all duration-300"
               >
