@@ -8,7 +8,6 @@ interface HeroProps { theme: "dark" | "light"; }
 const ROLES = [
   "Full-Stack Developer",
   "AI / ML Enthusiast",
-  "MERN Stack Dev",
   "DSA & CP Problem Solver"
 ];
 
