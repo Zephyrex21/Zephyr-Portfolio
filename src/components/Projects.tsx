@@ -283,9 +283,10 @@ export default function Projects({ theme }: ProjectsProps) {
                     <div className="aspect-[16/10] w-full relative overflow-hidden">
                       <ProjectImage project={project} theme={theme} />
 
-                      {/* Curtain reveal — slides off to the right as card enters view */}
+                      {/* Curtain reveal — frosted glass slides off to the right as card enters view */}
                       <motion.div
-                        className="absolute inset-0 bg-primary origin-left z-10 pointer-events-none"
+                        className="absolute inset-0 origin-left z-10 pointer-events-none backdrop-blur-md"
+                        style={{ backgroundColor: "rgba(0,0,0,0.35)" }}
                         initial={{ scaleX: 1 }}
                         whileInView={{ scaleX: 0 }}
                         viewport={{ once: true, amount: 0.3 }}
@@ -408,7 +409,7 @@ export default function Projects({ theme }: ProjectsProps) {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-50 bg-black/90 backdrop-blur-md flex items-center justify-center p-4"
+            className="fixed inset-0 z-50 backdrop-blur-xl bg-black/20 flex items-center justify-center p-4"
             onClick={(e) => {
               if (e.target === e.currentTarget) setSelectedCaseStudy(null);
             }}
