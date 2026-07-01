@@ -2,7 +2,7 @@ import { useEffect, useState, useRef } from "react";
 import { GraduationCap, CheckCircle2, User } from "lucide-react";
 import { motion, useInView } from "motion/react";
 
-function Counter({ target, duration = 1.5, suffix = "" }: { target: number; duration?: number; suffix?: string }) {
+function Counter({ target, duration = 1.8, suffix = "" }: { target: number; duration?: number; suffix?: string }) {
   const [count, setCount] = useState(0);
   const ref = useRef<HTMLDivElement | null>(null);
   const isInView = useInView(ref, { once: true, amount: 0.3 });
@@ -11,9 +11,11 @@ function Counter({ target, duration = 1.5, suffix = "" }: { target: number; dura
     let startTime: number | null = null;
     const animate = (ts: number) => {
       if (!startTime) startTime = ts;
-      const progress = Math.min((ts - startTime) / (duration * 1000), 1);
-      setCount(Math.floor(progress * target));
-      if (progress < 1) requestAnimationFrame(animate); else setCount(target);
+      const elapsed = (ts - startTime) / (duration * 1000);
+      // Cubic ease-out: starts fast, decelerates as it approaches target
+      const eased = 1 - Math.pow(1 - Math.min(elapsed, 1), 3);
+      setCount(Math.floor(eased * target));
+      if (elapsed < 1) requestAnimationFrame(animate); else setCount(target);
     };
     requestAnimationFrame(animate);
   }, [isInView, target, duration]);
@@ -30,11 +32,15 @@ export default function About() {
           <div className="lg:col-span-5 relative flex justify-center lg:justify-start">
             <motion.div initial={{ opacity: 0, x: -50 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true, amount: 0.3 }} transition={{ duration: 0.6 }} className="relative w-full max-w-sm md:max-w-md">
               <div className="aspect-square rounded-2xl overflow-hidden t-bg border t-bdr p-3 shadow-2xl">
-                <img
-                  className="w-full h-full object-cover rounded-xl grayscale hover:grayscale-0 hover:scale-[1.02] transition-all duration-500 ease-out cursor-pointer"
+                <motion.img
+                  className="w-full h-full object-cover rounded-xl hover:scale-[1.02] transition-transform duration-500 ease-out cursor-pointer"
                   src="/photo.jpg"
                   alt="Saurabh Raj Shekhar"
                   referrerPolicy="no-referrer"
+                  initial={{ filter: "grayscale(100%)" }}
+                  whileInView={{ filter: "grayscale(0%)" }}
+                  viewport={{ once: true, amount: 0.4 }}
+                  transition={{ duration: 0.9, ease: "easeOut", delay: 0.3 }}
                 />
               </div>
               {/* Name badge — top left */}

@@ -61,7 +61,7 @@ export default function Skills() {
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {cats.map((cat, i) => (
-            <motion.div key={cat.id} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.2 }} transition={{ duration: 0.5, delay: i * 0.1 }}
+            <motion.div key={cat.id} initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.15 }} transition={{ duration: 0.5, delay: i * 0.12, ease: [0.25, 0.46, 0.45, 0.94] }}
               className="p-8 rounded-2xl border t-bdr hover:border-primary hover:scale-[1.01] transition-all duration-300 t-card flex flex-col justify-between group shadow-sm"
             >
               <div>
@@ -85,8 +85,17 @@ export default function Skills() {
                         </span>
                       </div>
                       <div className="w-full h-1 t-surface rounded-full overflow-hidden">
-                        <motion.div initial={{ width: 0 }} whileInView={{ width: `${skill.pct}%` }} viewport={{ once: true }}
-                          transition={{ duration: 1, delay: 0.2 + si * 0.05 }} className="h-full rounded-full bg-primary"
+                        <motion.div
+                          initial={{ width: 0 }}
+                          whileInView={{ width: `${skill.pct}%` }}
+                          viewport={{ once: true }}
+                          transition={{
+                            type: "spring",
+                            stiffness: 60,
+                            damping: 12,
+                            delay: 0.15 + si * 0.07,
+                          }}
+                          className="h-full rounded-full bg-primary"
                         />
                       </div>
                     </div>

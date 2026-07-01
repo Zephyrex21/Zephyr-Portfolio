@@ -204,18 +204,29 @@ export default function Hero({ theme }: HeroProps) {
               <span className="text-[9px] t-txt40">NSUT.28</span>
             </div>
             <div className="space-y-8">
-              <div>
-                <div className="text-5xl font-black tracking-tighter t-txt mb-1">12+ <span className="text-lg font-bold opacity-30">PROJECTS</span></div>
-                <div className="text-[10px] uppercase tracking-widest t-txt40 font-bold">Full-Stack &amp; Deployed</div>
-              </div>
-              <div>
-                <div className="text-5xl font-black tracking-tighter t-txt mb-1">157+ <span className="text-lg font-bold opacity-30">DSA</span></div>
-                <div className="text-[10px] uppercase tracking-widest t-txt40 font-bold">Problems Solved</div>
-              </div>
-              <div>
-                <div className="text-5xl font-black tracking-tighter t-txt mb-1">22+ <span className="text-lg font-bold opacity-30 text-primary">REPOS</span></div>
-                <div className="text-[10px] uppercase tracking-widest t-txt40 font-bold">On GitHub</div>
-              </div>
+              {[
+                { value: "12+", label: "PROJECTS", sub: "Full-Stack & Deployed" },
+                { value: "157+", label: "DSA", sub: "Problems Solved" },
+                { value: "22+", label: "REPOS", sub: "On GitHub", accent: true },
+              ].map((stat) => (
+                <div key={stat.label} className="group cursor-default">
+                  <div className="text-5xl font-black tracking-tighter t-txt mb-1">
+                    {stat.value}{" "}
+                    <span className={`text-lg font-bold opacity-30 ${stat.accent ? "text-primary" : ""}`}>
+                      {stat.label}
+                    </span>
+                  </div>
+                  <div className="relative">
+                    <div className="text-[10px] uppercase tracking-widest t-txt40 font-bold">{stat.sub}</div>
+                    <motion.div
+                      className="absolute bottom-0 left-0 h-[1px] bg-primary"
+                      initial={{ width: 0 }}
+                      whileHover={{ width: "100%" }}
+                      transition={{ duration: 0.25, ease: "easeOut" }}
+                    />
+                  </div>
+                </div>
+              ))}
             </div>
             <div className="pt-4 border-t t-bdr flex items-center justify-between text-[9px] font-mono t-txt40">
               <span>STATUS: BUILDING</span>

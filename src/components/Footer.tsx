@@ -1,7 +1,23 @@
 import { Linkedin, Github, ArrowUp } from "lucide-react";
+import { motion } from "motion/react";
 
 export default function Footer() {
-  const scrollToTop = () => window.scrollTo({ top: 0, behavior: "smooth" });
+  const scrollToTop = () => {
+    const start = window.scrollY;
+    const startTime = performance.now();
+    const duration = 700;
+
+    const easeInOutCubic = (t: number) =>
+      t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+
+    const animate = (now: number) => {
+      const elapsed = now - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+      window.scrollTo(0, start * (1 - easeInOutCubic(progress)));
+      if (progress < 1) requestAnimationFrame(animate);
+    };
+    requestAnimationFrame(animate);
+  };
 
   return (
     <footer className="w-full py-16 md:py-24 t-bg border-t t-bdr">
@@ -68,10 +84,16 @@ export default function Footer() {
               <p className="text-xs font-mono text-primary uppercase tracking-wider">— John Johnson</p>
             </div>
             <button onClick={scrollToTop}
-              className="mt-8 md:mt-0 px-5 py-3 t-card border t-bdr hover:border-primary text-primary hover:bg-primary/5 rounded-full transition-all duration-300 cursor-pointer flex items-center gap-2 font-bold text-[10px] font-mono uppercase tracking-widest"
+              className="mt-8 md:mt-0 px-5 py-3 t-card border t-bdr hover:border-primary text-primary hover:bg-primary/5 rounded-full transition-all duration-300 cursor-pointer flex items-center gap-2 font-bold text-[10px] font-mono uppercase tracking-widest group"
             >
               Back To Top
-              <ArrowUp className="w-4 h-4 animate-bounce" />
+              <motion.span
+                className="inline-flex"
+                whileHover={{ y: -3 }}
+                transition={{ type: "spring", stiffness: 400, damping: 10 }}
+              >
+                <ArrowUp className="w-4 h-4" />
+              </motion.span>
             </button>
           </div>
         </div>

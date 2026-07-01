@@ -12,6 +12,8 @@ import Footer from "./components/Footer";
 import ResumeModal from "./components/ResumeModal";
 import Preloader from "./components/Preloader";
 import CursorGlow from "./components/CursorGlow";
+import ScrollProgressBar from "./components/ScrollProgressBar";
+import PageTransitionOverlay from "./components/PageTransitionOverlay";
 
 export default function App() {
   const [isResumeOpen, setIsResumeOpen] = useState(false);
@@ -35,6 +37,8 @@ export default function App() {
   return (
     <div data-theme={theme} className="relative min-h-screen t-bg t-txt antialiased overflow-x-hidden selection:bg-primary/20 selection:text-primary">
       <Preloader />
+      <ScrollProgressBar />
+      <PageTransitionOverlay />
       <CursorGlow />
 
       <TopNavBar onOpenResume={() => setIsResumeOpen(true)} theme={theme} toggleTheme={toggleTheme} />

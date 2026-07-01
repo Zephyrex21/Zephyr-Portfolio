@@ -39,7 +39,7 @@ export default function Services() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {services.map((s, i) => (
             <motion.a key={s.id} href="#projects"
-              initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.2 }} transition={{ duration: 0.5, delay: i * 0.1 }}
+              initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.15 }} transition={{ duration: 0.5, delay: i * 0.12, ease: [0.25, 0.46, 0.45, 0.94] }}
               className="p-8 md:p-10 rounded-2xl border t-bdr hover:border-primary transition-all duration-300 t-card flex flex-col justify-between group cursor-pointer relative overflow-hidden shadow-sm"
             >
               <div>

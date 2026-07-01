@@ -69,24 +69,28 @@ export default function TopNavBar({ onOpenResume, theme, toggleTheme }: TopNavBa
           </a>
 
           {/* Desktop nav links */}
-          <div className="hidden md:flex items-center space-x-8">
-            {navLinks.map((link) => (
-              <a
+          <div className="hidden md:flex items-center space-x-1">
+            {navLinks.map((link, i) => (
+              <motion.a
                 key={link.id}
                 href={link.href}
-                className={`relative font-sans text-xs font-bold uppercase tracking-widest transition-all py-1 ${
-                  activeSection === link.id ? "text-primary opacity-100" : "t-txt opacity-60 hover:opacity-100"
+                initial={{ opacity: 0, y: -8 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.3, delay: i * 0.06 }}
+                className={`relative font-sans text-xs font-bold uppercase tracking-widest transition-all py-2 px-3 rounded-lg ${
+                  activeSection === link.id ? "text-primary" : "t-txt opacity-60 hover:opacity-100"
                 }`}
               >
-                {link.name}
+                {/* Sliding background pill */}
                 {activeSection === link.id && (
                   <motion.span
-                    layoutId="activeNavIndicator"
-                    className="absolute bottom-0 left-0 right-0 h-0.5 bg-primary"
-                    transition={{ type: "spring", stiffness: 380, damping: 30 }}
+                    layoutId="navPill"
+                    className="absolute inset-0 rounded-lg bg-primary/10 border border-primary/20"
+                    transition={{ type: "spring", stiffness: 380, damping: 32 }}
                   />
                 )}
-              </a>
+                <span className="relative z-10">{link.name}</span>
+              </motion.a>
             ))}
           </div>
 
