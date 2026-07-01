@@ -7,8 +7,9 @@ interface HeroProps { theme: "dark" | "light"; }
 // Defined outside component — not recreated on every render
 const ROLES = [
   "Full-Stack Developer",
+  "MERN Stack Developer",
   "AI / ML Enthusiast",
-  "DSA & CP Problem Solver"
+  "DSA & CP Problem Solver",
 ];
 
 export default function Hero({ theme }: HeroProps) {
@@ -173,8 +174,11 @@ export default function Hero({ theme }: HeroProps) {
           </motion.div>
 
           <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.6, delay: 0.2 }} className="flex items-center min-h-[40px] mb-6">
-            <span className="font-mono text-xl sm:text-2xl font-bold t-txt80 uppercase tracking-widest typing-cursor">
-              {typedText}
+            <span
+              className="font-mono text-xl sm:text-2xl font-bold t-txt80 uppercase tracking-widest typing-cursor"
+              style={{ opacity: typedText.length > 0 ? 1 : 0, transition: "opacity 0.2s" }}
+            >
+              {typedText || "\u00A0"}
             </span>
           </motion.div>
 

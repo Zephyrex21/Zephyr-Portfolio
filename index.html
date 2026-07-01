@@ -22,6 +22,7 @@
     "/>
 
     <meta name="robots" content="index, follow"/>
+    <link rel="icon" type="image/png" href="/favicon.ico.png" />
     <link rel="canonical" href="https://saurabhdev-xi.vercel.app/"/>
     
     <meta name="author" content="Saurabh Raj Shekhar" />
@@ -29,7 +30,9 @@
     <meta property="og:description" content="Full-Stack Developer & CSE (Data Science) student at NSUT Delhi. Building end-to-end web apps, algorithm visualizers, and AI/ML tools." />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://saurabhdev-xi.vercel.app/" />
-    <meta property="og:image" content="https://saurabhdev-xi.vercel.app/photo.jpg"/>
+    <meta property="og:image" content="https://saurabhdev-xi.vercel.app/og-image.png"/>
+    <meta property="og:image:width" content="1200"/>
+    <meta property="og:image:height" content="630"/>
     
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">
@@ -38,15 +41,21 @@
     <meta name="twitter:description"
     content="AI/ML + Full Stack Developer portfolio">
     <meta name="twitter:image"
-    content="https://saurabhdev-xi.vercel.app/photo.jpg">
+    content="https://saurabhdev-xi.vercel.app/og-image.png">
 
-    <!-- Fonts -->
+    <!-- Fonts — preloaded for zero render-blocking on first paint -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link 
-    href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap"
-    rel="stylesheet"
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Outfit:wght@700;800&family=Inter:wght@400;500&display=swap">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+      media="print"
+      onload="this.media='all'"
     >
+    <noscript>
+      <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    </noscript>
     
     <script type="application/ld+json">
       {
