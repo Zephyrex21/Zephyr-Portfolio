@@ -1,6 +1,7 @@
 {
-  "name": "Priyanshu Pandey Portfolio",
-  "description": "A highly polished, interactive creative developer portfolio featuring dynamic typing effects, technical skills arsenal, interactive project showcases, services, and a contact form.",
+  "name": "Saurabh Raj Shekhar Portfolio",
+  "description":
+    "Official portfolio of Saurabh Raj Shekhar — Computer Science & Data Science student at NSUT Delhi. Full Stack Developer building React, Node.js, AI/ML and software projects.",
   "requestFramePermissions": [],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }
